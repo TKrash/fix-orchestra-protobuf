@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
 import io.fixprotocol._2020.orchestra.repository.CodeSetType;
 import io.fixprotocol._2020.orchestra.repository.CodeSets;
 import io.fixprotocol._2020.orchestra.repository.CodeType;
@@ -29,6 +30,7 @@ import io.fixprotocol._2020.orchestra.repository.Datatype;
 import io.fixprotocol._2020.orchestra.repository.Datatypes;
 import io.fixprotocol._2020.orchestra.repository.FieldRefType;
 import io.fixprotocol._2020.orchestra.repository.FieldType;
+import io.fixprotocol._2020.orchestra.repository.Groups;
 import io.fixprotocol._2020.orchestra.repository.GroupRefType;
 import io.fixprotocol._2020.orchestra.repository.GroupType;
 import io.fixprotocol._2020.orchestra.repository.MessageType;
