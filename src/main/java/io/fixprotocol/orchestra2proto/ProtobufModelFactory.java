@@ -257,7 +257,24 @@ public class ProtobufModelFactory extends ModelFactory {
 			if(msgItem instanceof GroupRefType) {
 				protoField = buildField((GroupRefType) msgItem);
 			}
-			if (protoField != null) {
+			else if(msgItem instanceof ComponentRefType) {
+				protoField = buildField((ComponentRefType) msgItem);
+			}
+			else if(msgItem instanceof FieldRefType) {
+				protoField = buildField((FieldRefType) msgItem);
+				if(hasUnionType((FieldRefType) msgItem)) {
+					MessageField altField = buildAltUnionField((FieldRefType) msgItem);
+					if(altField != null) {
+						protoMsg.fields.add(altField);
+						List<MessageField> unionList = new ArrayList<MessageField>(Arrays.asList(protoField, altField));
+						protoMsg.nestedOneOfs.put(protoField.fieldName + "_union", unionList);
+					}
+				}
+			}
+			else {
+				logger.error("unknown type: " + msgItem);
+			}
+			if(protoField != null) {
 				protoMsg.fields.add(protoField);
 			}
 		}

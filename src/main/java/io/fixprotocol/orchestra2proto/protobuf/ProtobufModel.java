@@ -151,7 +151,7 @@ public class ProtobufModel implements IModel {
 					for(Enum item : enums) {
 						if(item.name.equals(enumRefName)) {
 							String itemPkg = item.homePackage;
-							if(!itemPkg.equals(msg.homePackage)) {
+							if(itemPkg != null && !itemPkg.equals(msg.homePackage)) {
 								String itemFileName = itemPkg.toLowerCase() + ".proto";
 								if(!f.requiredImports.contains(itemFileName))
 									f.requiredImports.add(itemFileName);
